@@ -14,6 +14,9 @@ Vue.createApp({
       },
       check() {
         console.log(this.user); 
+      },
+      reset(){
+        this.user = "";
       }
     }
   }).mount("#assignment");
