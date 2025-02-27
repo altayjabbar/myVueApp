@@ -6,6 +6,7 @@ Vue.createApp({
     },
     methods: {
       showAlert() {
+        console.log("hi")
         alert("show Alert");
       },
       register(event) {
