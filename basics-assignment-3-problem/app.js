@@ -7,10 +7,10 @@ Vue.createApp({
     },
     computed: {
         result() {
-            if (number < 37) {
+            if (this.number < 37) {
                 return "Not there yet!";
-            } else if (number === 37) {
-                return number;
+            } else if (this.number === 37) {
+                return this.number;
             } else {
                 return "Too much!";
             }
@@ -19,9 +19,9 @@ Vue.createApp({
     },
     watch:{
         result(){
-            const that = this;
+            console.log("start...")
             setTimeout(function(){
-                that.number = 0;
+                this.number = 0;
             },5000)
         }
     },
