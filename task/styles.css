@@ -35,3 +35,16 @@ header {
   margin: 16px;
   border: 2px dashed #ccc;
 }
+
+.active1{
+  border-color: blue;
+  background-color: green;
+}
+.active2{
+  border-color: blue;
+  background-color: blue;
+}
+.active3{
+  border-color: rgb(30, 145, 84);
+  background-color: fuchsia;
+}
