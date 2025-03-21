@@ -1,14 +1,13 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite === "1" ? "(Favorite)" : "" }}</h2>
-    <button @click="toggleFavorite">toggle Favorite</button>
-    <button @click="toogleDetails">
-      {{ detaisVisible ? "Hide" : "Show" }} Details
+    <h2>{{ name }} {{ isFavorite ? "(Favorite)" : "" }}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
+    <button @click="toggleDetails">
+      {{ detailsVisible ? "Hide" : "Show" }} Details
     </button>
-    <ul v-if="detaisVisible">
-      <li><strong>Phone:</strong>{{ phoneNumber }}</li>
-
-      <li><strong>Email:</strong>{{ emailAddress }}</li>
+    <ul v-if="detailsVisible">
+      <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+      <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
   </li>
 </template>
@@ -16,6 +15,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -29,32 +32,21 @@ export default {
       required: true,
     },
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
+      default: false,
     },
   },
   data() {
-    return {
-      detaisVisible: false,
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "01245 546 54",
-        email: "manuel@gmail.com",
-      },
-      friendIsFavorite: this.isFavorite,
+    return { 
     };
   },
   methods: {
-    toogleDetails() {
-      this.detaisVisible = !this.detaisVisible;
+    toggleDetails() {  
+      this.detailsVisible = !this.detailsVisible;
     },
     toggleFavorite() {
-      if (this.friendIsFavorite === "1") {
-        this.friendIsFavorite = "0";
-      } else {
-        this.friendIsFavorite = "1";
-      }
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };
