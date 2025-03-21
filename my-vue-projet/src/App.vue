@@ -6,11 +6,13 @@
         name="Manuel Lorenz"
         phone-number="01245 546 54"
         email-address="manuel@gmail.com"
+        is-favorite="1"
       ></friend-contacts>
       <friend-contact
         name="Julie Sancez"
         phone-number="0127 4550 122"
         email-address="julie@gmail.com"
+        is-favorite="0"
       ></friend-contact>
     </ul>
   </section>
