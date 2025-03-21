@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+<h1>Friends</h1>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      firends: [
+        {
+          id: "manuel",
+          name: "Manuel Lorenz",
+          phone: "01245 546 54",
+          email: "manuel@gmail.com",
+        },
+        {
+          id: "julie",
+          name: "Julie Sancez ",
+          phone: "065745 54688 54",
+          email: "julie@gmail.com",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 </style>
+
