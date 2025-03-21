@@ -1,14 +1,20 @@
 <template>
-  
-<h1>Friends</h1>
-  
+  <section>
+    <h1>Friends</h1>
+    <ul>
+      <firend-contact></firend-contact>
+    </ul>
+  </section>
 </template>
+
+
+
 
 <script>
 export default {
   data() {
     return {
-      firends: [
+      friends: [
         {
           id: "manuel",
           name: "Manuel Lorenz",
@@ -27,10 +33,5 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  text-align: center;
-  margin-top: 50px;
-}
-</style>
+  
 

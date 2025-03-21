@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import FirendContact from './components/FirendContact.vue';
+const app =createApp(App);
 
-createApp(App).mount('#app')
+app.component('firend-contact', FirendContact);
+app.mount('#app')
