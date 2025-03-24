@@ -9,6 +9,7 @@
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
+    <button @click="$emit('delete',id)">Delete</button>
   </li>
 </template>
 
@@ -37,6 +38,7 @@ export default {
       default: false,
     },
   },
+  emits:  ['toggle-favorite','delete'],
   data() {
     return { 
       detailsVisible: false,
