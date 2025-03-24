@@ -39,6 +39,7 @@ export default {
   },
   data() {
     return { 
+      detailsVisible: false,
     };
   },
   methods: {
