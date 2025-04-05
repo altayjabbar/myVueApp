@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import TheHeader from "./components/TheHeader.vue";
+import BadgeList from "./components/BadgeList.vue";
+import TheHeader from "./components/layout/TheHeader.vue";
 import ActiveGoals from "./components/ActiveGoals.vue";
 import ManageGoals from "./components/ManageGoals.vue";
 
@@ -22,6 +23,7 @@ export default {
     TheHeader,
     ActiveGoals,
     ManageGoals,
+    BadgeList
   },
   data() {
     return {
