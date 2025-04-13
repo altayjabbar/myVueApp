@@ -1,25 +1,30 @@
 <template>
-    <base-card>
-      <base-button @click="setSelectedTab('stored-resources')">Stored Resources</base-button>
-      <base-button @click="setSelectedTab('add-resource')">Add Resources</base-button>
-      
+  <base-card>
+    <base-button @click="setSelectedTab('stored-resources')"
+      >Stored Resources</base-button
+    >
+    <base-button @click="setSelectedTab('add-resource')"
+      >Add Resources</base-button
+    >
+    <keep-alive>
       <component :is="selectedTabComponent" />
-    </base-card>
-  </template>
+    </keep-alive>
+  </base-card>
+</template>
   
   <script>
-  import StoredResources from './StoredResources.vue';
-  import AddResource from './AddResource.vue';
-  
-  export default {
-    components: {
-      StoredResources,
-      AddResource,
-    },
-    data() {
-      return {
-        selectedTab: 'stored-resources',
-        storedResources: [
+import StoredResources from './StoredResources.vue';
+import AddResource from './AddResource.vue';
+
+export default {
+  components: {
+    StoredResources,
+    AddResource,
+  },
+  data() {
+    return {
+      selectedTab: 'stored-resources',
+      storedResources: [
         {
           id: 'official-guide',
           title: 'Official Guide',
@@ -33,23 +38,41 @@
           link: 'https://google.org',
         },
       ],
+    };
+  },
+  provide() {
+    return {
+      resources: this.storedResources,
+      addResource: this.addResource,
+      deleteResource: this.removeResource,
+    };
+  },
+  methods: {
+    setSelectedTab(tab) {
+      this.selectedTab = tab;
+    },
+    addResource(title, description, url) {
+      const newResource = {
+        id: new Date().toISOString(),
+        title: title,
+        description: description,
+        link: url,
       };
+      this.storedResources.unshift(newResource);
+      this.selectedTab = 'stored-resources';
     },
-    provide(){
-      return{
-        resources:this.storedResources
-      }
+    removeResource(resId) {
+      const resIndex=this.storedResources.findIndex(res=>res.id===resId)
+      this.storedResources.splice(resIndex,1);
     },
-    methods: {
-      setSelectedTab(tab) {
-        this.selectedTab = tab;
-      },
+  },
+  computed: {
+    selectedTabComponent() {
+      return this.selectedTab === 'stored-resources'
+        ? 'StoredResources'
+        : 'AddResource';
     },
-    computed: {
-      selectedTabComponent() {
-        return this.selectedTab === 'stored-resources' ? 'StoredResources' : 'AddResource';
-      },
-    },
-  };
-  </script>
+  },
+};
+</script>
   
