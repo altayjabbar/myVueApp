@@ -6,12 +6,12 @@
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" />
+      <input id="age" name="age" v-model="userAge" />
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
-      <select id="referrer" name="referrer">
-        <option value="google">Google</option>
+      <select id="referrer" name="referrer" v-model="referrer">
+        <option value="google">Google</option> 
         <option value="wom">Word of mouth</option>
         <option value="newspaper">Newspaper</option>
       </select>
@@ -57,12 +57,18 @@ export default {
   data() {
     return {
       userName: '',
+      userAge:null,
+      referrer:'raw',
     };
   },
   methods: {
     submitForm() {
       console.log('userName: ' + this.userName);
       this.userName = '';
+      console.log('userAge:'+this.userAge)
+      this.userAge=null;
+      console.log('referrer:'+ this.referrer)
+      this.referrer='raw';
     },
   },
 };
