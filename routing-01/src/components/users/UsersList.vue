@@ -1,8 +1,12 @@
+<button @click="confirmInput">Confirm</button>
 <template>
   <ul>
     <user-item v-for="user in users" :key="user.id" :name="user.fullName" :role="user.role"></user-item>
   </ul>
+<button @click="confirmInput">Confirm</button>
+
 </template>
+<button @click="confirmInput">Confirm</button>
 
 <script>
 import UserItem from './UserItem.vue';
@@ -12,6 +16,12 @@ export default {
     UserItem,
   },
   inject: ['users'],
+  methods:{
+    confirmInput(){
+      // ....
+      this.$router.push('/teams')
+    }
+  }
 };
 </script>
 
