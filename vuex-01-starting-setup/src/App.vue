@@ -3,6 +3,7 @@
     <base-container title="Vuex"></base-container>
     <the-components></the-components>
     <the-favorite></the-favorite>
+    <change-compnent></change-compnent>
     <button @click="addOne">Add 10</button>
   </div>
 </template>
@@ -11,11 +12,13 @@
 import BaseContainer from './components/BaseContainer.vue';
 import TheComponents from './components/TheComponents.vue';
 import TheFavorite from './components/TheFavorite.vue';
+import ChangeCompnent from './components/ChangeCompnent.vue';
 export default {
   components: {
     BaseContainer,
     TheComponents,
-    TheFavorite
+    TheFavorite,
+    ChangeCompnent
   },
 
   methods: {
