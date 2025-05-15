@@ -1,8 +1,8 @@
 <template>
   <the-navigation > </the-navigation>
-  <main>
-    <router-view></router-view>
-  </main>
+  <!-- <main>
+    <router-view> Message </router-view>
+  </main> -->
 </template>
 
 <script>
