@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheHeader from './blayout/TheHeader.vue';
+import TheHeader from './components/blayout/TheHeader.vue';
 export default {
   components:{
     TheHeader,
