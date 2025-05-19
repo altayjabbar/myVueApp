@@ -2,31 +2,38 @@
   <div>
     <section>FILTER</section>
     <section>
-      <div>
-        <button>Refresh</button>
-        <router-link to="/register">Register as Coach</router-link>
+      <div class="controls">
+        <base-card>
+          <base-button mode="outline">Refresh</base-button>
+          <base-button link to="/register">Register as Coach</base-button>
+        </base-card>
       </div>
-      <ul v-if="hasCoaches">
-        <coach-item
-          v-for="coach in filteredCoaches"
-          :key="coach.id"
-          :id="coach.id"
-          :first-name="coach.firstName"
-          :last-name="coach.lastName"
-          :rate="coach.hourlyRate"
-          :areas="coach.areas"
-        ></coach-item>
-      </ul>
-      <h3 v-else>No coaches found.</h3>
-    </section>
+
+      <base-card>
+        <ul v-if="hasCoaches">
+          <coach-item
+            v-for="coach in filteredCoaches"
+            :key="coach.id"
+            :id="coach.id"
+            :first-name="coach.firstName"
+            :last-name="coach.lastName"
+            :rate="coach.hourlyRate"
+            :areas="coach.areas"
+          ></coach-item>
+        </ul>
+        <h3 v-else>No coaches found.</h3>
+      </base-card>
+    </section>``
   </div>
 </template>
 
 <script>
+import BaseButton from '../../../../box/http-01/src/components/UI/BaseButton.vue';
 import CoachItem from '../../components/coaches/CoachItem.vue';
 export default {
   components: {
     CoachItem,
+    BaseButton,
   },
   computed: {
     filteredCoaches() {
